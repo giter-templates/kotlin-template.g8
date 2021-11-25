@@ -1,0 +1,13 @@
+apply plugin: 'com.bmuschko.docker-java-application'
+
+dependencies {
+    testImplementation "org.jetbrains.kotlin:kotlin-test"
+}
+
+docker {
+    javaApplication {
+        baseImage = 'openjdk:11-jre-slim-buster'
+        ports = []
+        jvmArgs = ['-Xms256m', '-Xmx2048m']
+    }
+}

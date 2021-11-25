@@ -1,1 +1,7 @@
-# ktor-template.g8
+# kotlin-template.g8
+
+Basic kotlin project template/
+
+```shell
+sbt new giter-templates/kotlin-template.g8
+```

@@ -1,0 +1,38 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version "\$kotlin_version" apply false
+    id 'com.bmuschko.docker-java-application' version "\$docker_plugin_version" apply false
+}
+
+subprojects {
+    apply plugin: 'idea'
+    apply plugin: 'org.jetbrains.kotlin.jvm'
+
+    group '$organization$'
+    version '1.0'
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven' }
+    }
+
+    dependencies {
+        testImplementation "org.jetbrains.kotlin:kotlin-test:\$kotlin_version"
+    }
+
+    test {
+        useJUnit()
+    }
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    compileKotlin {
+        kotlinOptions.jvmTarget = '11'
+    }
+
+    compileTestKotlin {
+        kotlinOptions.jvmTarget = '11'
+    }
+}
